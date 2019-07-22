@@ -1,0 +1,25 @@
+{
+  "name": "node-youtube-app",
+  "version": "1.0.0",
+  "description": "playground ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyeung2017/node-youtube.git"
+  },
+  "author": "leo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tyeung2017/node-youtube/issues"
+  },
+  "homepage": "https://github.com/tyeung2017/node-youtube#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
