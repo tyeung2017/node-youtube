@@ -1,28 +1,21 @@
-const ytdl = require('ytdl-core');
+var path = require('path')
+var fs = require('fs')
+var ytdl = require('@microlink/youtube-dl')
 
-const readline = require('readline');
-const ffmpeg = require('fluent-ffmpeg');
 const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
 
-ffmpeg.setFfmpegPath(ffmpegPath);
-
-const start = Date.now();
-const download = (url, name) => {
-  const stream = ytdl(url, {
-    quality: 'highestaudio',
-    filter: 'audioonly',
-  });
-
-  ffmpeg(stream)
-    .audioBitrate(128)
-    .save(`${__dirname}/${name}.mp3`)
-    .on('progress', (p) => {
-      readline.cursorTo(process.stdout, 0);
-      process.stdout.write(`${p.targetSize}kb downloaded`);
-    })
-    .on('end', () => {
-      console.log(`\ndone, thanks - ${(Date.now() - start) / 1000}s`);
-    });
-};
+function download (url) {
+  'use strict'
+  ytdl.exec(url, ['-x', '--audio-format', 'mp3', `--ffmpeg-location=${ffmpegPath}`], {}, function exec (
+    err,
+    output
+  ) {
+    'use strict'
+    if (err) {
+      throw err
+    }
+    console.log(output.join('\n'))
+  })
+}
 
 module.exports = download;
