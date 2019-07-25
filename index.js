@@ -6,8 +6,8 @@ const download = require('./download');
 
 const PORT = process.env.PORT || 9001;
 
-const url = 'https://www.youtube.com/watch?v=IeAbAHZX4Rg&list=RDIeAbAHZX4Rg';
+const playlist = 'https://www.youtube.com/playlist?list=PLxYj8iSUBFPGLv4aAyYYYRcIC8u5R_ZQ8';
 
-download(url, '涙の種、笑顔の花');
+download(playlist, 'test-playlist');
 
 app.listen(PORT, () => console.log(`Hi Leo, magic is happening at PORT ${PORT}`));
